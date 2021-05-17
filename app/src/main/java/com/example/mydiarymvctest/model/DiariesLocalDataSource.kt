@@ -3,7 +3,6 @@ package com.example.mydiarymvctest.model
 import com.example.mydiarymvctest.data.DataCallback
 import com.example.mydiarymvctest.data.DataSource
 import com.example.mydiarymvctest.data.mock.MockDiaries
-import com.example.mydiarymvctest.utils.CollectionUtils
 import com.example.mydiarymvctest.utils.GsonUtils
 import com.example.mydiarymvctest.utils.SharedPreferencesUtils
 import com.google.gson.reflect.TypeToken
@@ -43,7 +42,7 @@ class DiariesLocalDataSource private constructor(): DataSource<Diary> {
         }
     }
 
-    override fun get(id: String, callback: DataCallback<Diary>) {
+    override fun get(id: String?, callback: DataCallback<Diary>) {
         val diary: Diary? = localData[id]
         if (diary != null) {
             callback.onSuccess(diary)

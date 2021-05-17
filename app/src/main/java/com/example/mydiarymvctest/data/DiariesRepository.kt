@@ -41,7 +41,7 @@ class DiariesRepository private constructor(): DataSource<Diary> {
     }
 
     // 获取某个日记
-    override fun get(id: String, callback: DataCallback<Diary>) {
+    override fun get(id: String?, callback: DataCallback<Diary>) {
         val cacheDiary = getDiaryByIdFromMemory(id)
         // 内存中有数据
         if (cacheDiary != null) {
@@ -100,7 +100,7 @@ class DiariesRepository private constructor(): DataSource<Diary> {
         }
     }
 
-    private fun getDiaryByIdFromMemory(id: String): Diary? {
+    private fun getDiaryByIdFromMemory(id: String?): Diary? {
         return if (memoryCache.isNullOrEmpty()) {
             null
         } else {

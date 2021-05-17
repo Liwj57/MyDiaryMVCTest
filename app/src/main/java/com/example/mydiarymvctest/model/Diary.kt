@@ -8,7 +8,7 @@ import java.util.*
  * @date 5/11
  * 日记Model
  */
-class Diary @JvmOverloads constructor(title: String, description: String, id:String = UUID.randomUUID().toString()) {
+class Diary @JvmOverloads constructor(title: String, description: String, id:String? = UUID.randomUUID().toString()) {
     // 日记标识
     var id: String = "--"
     // 日记标题
@@ -17,7 +17,7 @@ class Diary @JvmOverloads constructor(title: String, description: String, id:Str
     var description: String = "--"
 
     init {
-        this.id = id
+        this.id = id ?: "--"
         this.title = title
         this.description = description
     }

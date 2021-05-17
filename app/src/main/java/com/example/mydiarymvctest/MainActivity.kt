@@ -5,6 +5,7 @@ import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.mydiarymvctest.fragment.DiariesFragment
+import com.example.mydiarymvctest.presenter.DiariesPresenter
 import com.example.mydiarymvctest.utils.ActivityUtils
 
 class MainActivity : AppCompatActivity() {
@@ -28,11 +29,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFragment() {
+        //初始化Fragment
         var diariesFragment: DiariesFragment? = getDiariesFragment()
+        // 查找是否已经创建过日记Fragment
         if (diariesFragment == null) {
+            // 创建日记Fragment
             diariesFragment = DiariesFragment()
+            // 将日记Fragment添加到Activity显示
             ActivityUtils.addFragmentToActivity(supportFragmentManager, diariesFragment, R.id.content)
         }
+
+        diariesFragment.setPresenter(DiariesPresenter(diariesFragment))
     }
 
     private fun getDiariesFragment(): DiariesFragment? {

@@ -17,4 +17,6 @@
 
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
+    <string name="title">标题：</string>
+    <string name="desc">详情：</string>
 </resources>

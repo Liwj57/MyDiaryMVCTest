@@ -11,7 +11,7 @@ interface DataSource<T> {
     // 获取所有数据T
     fun getAll(@NonNull callback: DataCallback<List<T>>)
     // 获取某个数据T
-    fun get(id: String, callback: DataCallback<T>)
+    fun get(id: String?, callback: DataCallback<T>)
     // 更新某个数据T
     fun update(diary: T)
     // 清除所有数据T
